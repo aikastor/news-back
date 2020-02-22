@@ -25,14 +25,18 @@ router.post('/',async (req,res) => {
   const comment = req.body;
 
   if (comment.comment && comment.news_id) {
+    try {
+      const result = await mysqlDb.getConnection().query(
+          'INSERT INTO `commentaries` ' +
+          '(`news_id`, `author`, `comment`) VALUES' +
+          '(?, ?, ?)',
+          [comment.news_id, comment.author, comment.comment]
+      );
+      res.send({...comment,...{id: result.insertId}});
+    } catch (e) {
+      res.status(400).send({error: e.sqlMessage})
+    }
 
-    const result = await mysqlDb.getConnection().query(
-        'INSERT INTO `commentaries` ' +
-        '(`news_id`, `author`, `comment`) VALUES' +
-        '(?, ?, ?)',
-        [comment.news_id, comment.author, comment.comment]
-    );
-    res.send({...comment,...{id: result.insertId}});
   } else {
     res.status(400).send({message: 'Some data is missing!'})
   }

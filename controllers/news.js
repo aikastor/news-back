@@ -39,7 +39,7 @@ router.get('/:id', async (req,res) => {
     !item ?
       res.status(404).send({message: 'News not found!'})
       :
-      res.send(response)
+      res.send(response[0])
 });
 router.post('/',upload.single('image'), async (req,res) => {
   const newsItem = req.body;
