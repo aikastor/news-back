@@ -6,15 +6,17 @@ const router = express.Router();
 router.get('/', async (req,res) => {
   let comments;
 
-  if(req.params.news_id) {
+  const id = req.query.news_id;
+  console.log(id);
+  if(id) {
     comments = await mysqlDb.getConnection().query(
-        'SELECT `author`, `comment` from `commentaries`' +
-        'WHERE `news_id` = ?', req.params.news_id
+        'SELECT * from `commentaries`' +
+        'WHERE `news_id` = ?', id
     );
     res.send(comments)
   } else {
     comments = await mysqlDb.getConnection().query(
-        'SELECT `author`, `comment` from `commentaries`'
+        'SELECT * from `commentaries`'
     );
     res.send(comments)
   }
