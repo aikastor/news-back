@@ -32,7 +32,7 @@ CREATE TABLE `commentaries` (
   PRIMARY KEY (`id`),
   KEY `fk_commentaries_1_idx` (`news_id`),
   CONSTRAINT `fk_commentaries_1` FOREIGN KEY (`news_id`) REFERENCES `news` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `commentaries` (
 
 LOCK TABLES `commentaries` WRITE;
 /*!40000 ALTER TABLE `commentaries` DISABLE KEYS */;
-INSERT INTO `commentaries` VALUES (14,9,'Emma','what a douche!'),(15,9,'','no wonder he lived happily until he\'s 90, lol'),(17,10,'Robert','Go Bernie! Go!'),(18,10,'','Would that stop Russian bot actiories? No'),(19,13,'','омг, фу'),(20,13,'','омг, фу'),(21,13,'','ваыва');
+INSERT INTO `commentaries` VALUES (14,9,'Emma','what a douche!'),(15,9,'','no wonder he lived happily until he\'s 90, lol'),(17,10,'Robert','Go Bernie! Go!'),(18,10,'','Would that stop Russian bot actiories? No'),(19,13,'','омг, фу');
 /*!40000 ALTER TABLE `commentaries` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `news` (
   `image` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `date` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,4 +81,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-22 19:04:49
+-- Dump completed on 2020-02-22 19:19:16
