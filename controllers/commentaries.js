@@ -7,7 +7,7 @@ router.get('/', async (req,res) => {
   let comments;
 
   const id = req.query.news_id;
-  console.log(id);
+
   if(id) {
     comments = await mysqlDb.getConnection().query(
         'SELECT * from `commentaries`' +
